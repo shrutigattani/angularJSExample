@@ -1,0 +1,31 @@
+<div class="jumbotron text-center">
+	<h1>Photo Page</h1>
+	
+	<p>{{ message }}</p>
+</div>
+<div class="container">
+	<label>Search for photos</label>
+	<form>
+		<ul class="color-list">
+			<li class="color-swatch" style="background-color:#ff2000;" data-color-code:"0" data-tooltip-title:"Red"><a ng-click="loadColorPhoto()"></a></li>
+			<li class="color-swatch" style="background-color:#ff7c00;" data-color-code:"2" data-tooltip-title:"Orange"></li>
+			<li class="color-swatch" style="background-color:#a24615;" data-color-code:"1" data-tooltip-title:"Dark Orange"></li>
+			<li class="color-swatch" style="background-color:#ff9f9c;" data-color-code:"b" data-tooltip-title:"Pink"></li>
+			<li class="color-swatch" style="background-color:#fffa00;" data-color-code:"4" data-tooltip-title:"Lemon Yellow"></li>
+			<li class="color-swatch" style="background-color:#0062c6;" data-color-code:"8" data-tooltip-title:"Blue"></li>
+			<li class="color-swatch" style="background-color:#90e200;" data-color-code:"5" data-tooltip-title:"Green"></li>
+		</ul>
+
+	<input type="text" ng-model="photoType" placeholder="Search for photos">
+	<button ng-click="loadPhoto()">Go</button>
+    </form>
+	<h1>{{photoType}}</h1>
+	<div class="gallery-grids" ng-repeat="x in flickrPhotos">
+		<div class="col-md-4 gallery-grid">
+			 	<img id="photos" class="img-responsive" ng-src="{{x.url_m}}">
+			 	
+			 	
+	</div>		 	
+	</div>
+	</div>
+</div>
