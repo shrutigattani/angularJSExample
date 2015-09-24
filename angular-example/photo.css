@@ -59,3 +59,8 @@
     height: 20px;
     position: relative;
 }
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}

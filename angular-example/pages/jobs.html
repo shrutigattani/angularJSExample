@@ -3,7 +3,9 @@
 	
 	<p>{{ message }}</p>
 </div>
-<div>
+<div class="container">
+ <div class="row">
+    <div class="col-md-2 col-centered text-center">
 <table>
 <tr ng-repeat="y in jobs | orderBy: '-date'">
 <td ng-if="$odd" style="background-color:#f1f1f1">{{y.company}}</td>
@@ -14,4 +16,6 @@
 <td ng-if="$even">{{ y.location }}</td>
 </tr>
 </table>
+</div>
+</div>
 </div>

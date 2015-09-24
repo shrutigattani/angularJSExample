@@ -33,37 +33,54 @@
 	// create the controller and inject Angular's $scope
 	shrutiApp.controller('mainController', function($scope) {
 		// create a message to display in our view
-		$scope.message = 'Everyone come and see how good I look!';
+		$scope.message = 'Please visit about photo page for photo search!';
 		
 	});
 
 	shrutiApp.controller('aboutController', function($scope, $http) {
 		$scope.message = 'Search your photos here.';
-		$scope.photoType ='tree';
-		 
+		$scope.photoType ='';
+		
+		/*$scope.colors = [{colorcode: 'Red'},
+        {colorcode: 'Orange'}, 
+        {colorcode: 'Pink'},
+        {colorcode:'Dark Orange'},
+        {colorcode:'Lemon Yellow'},
+        {colorcode: 'Green'},
+        {colorcode: 'Blue'}];*/
+       
+        $scope.colors = ['Red', 'Orange','#a24615','#ff9f9c','#fffa00','#0062c6','#90e200'];
+		 if ($scope.photoType ===''){
+		 	$scope.photoType ='Tree';
+		 	setTimeout(function() {
+		 		$scope.loadPhoto();},3000);
+		 }
 	     $scope.loadPhoto  = function() {flickrURL = flickrURL + '&text=' + $scope.photoType;
 		 $http.get(flickrURL).success(function (response){
 		 $scope.flickrPhotos = response.photos.photo;
-		 //$scope.height_t = response.photos.height_t;
-		 //$scope.width_t = response.photos.height_t;
+		 	
 		});};
-		$scope.loadColorPhoto() = function(){flickrURL = flickrURL + '&color=' + $scope.data-color-code;
-		 $http.get(flickrURL).success(function (response){
-		 $scope.flickrPhotos = response.photos.photo;
-		 //$scope.height_t = response.photos.height_t;
-		 //$scope.width_t = response.photos.height_t;
-		});};
-			
+		
+		$scope.loadColorPhoto = function(){ 
+			alert("clicked");
+		};
+			//flickrURL = flickrURL + '&color_codes=0';
+		
+		//$http.get(flickrURL).success(function (response){
+		 //$scope.flickrPhotos = response.photos.photo;
+		 	
+		//});
+		
 		
 
 });
 
 	shrutiApp.controller('contactController', function($scope) {
-		$scope.message = 'Contact us! JK. This is just a demo.';
+		$scope.message = 'Contact us!';
 	});
 		
 	shrutiApp.controller('jobsController', function($scope, $http){
-			$scope.message = 'You can see latest jobs.';
+			$scope.message = 'You can see latest jobs here.';
 			$http.get("http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=java").success(function(response){
 			$scope.jobs = response.resultItemList;
 	});
