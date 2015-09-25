@@ -49,7 +49,7 @@
         {colorcode: 'Green'},
         {colorcode: 'Blue'}];*/
        
-        $scope.colors = ['Red', 'Orange','#a24615','#ff9f9c','#fffa00','#0062c6','#90e200'];
+        $scope.colors = ['Red', '#a24615','Orange','#ffcf00','#fffa00','#90e200','#00ab00', '#00b2d4','#0062c6','#8c20ba'];
 		 if ($scope.photoType ===''){
 		 	$scope.photoType ='Tree';
 		 	setTimeout(function() {
@@ -61,15 +61,15 @@
 		 	
 		});};
 		
-		$scope.loadColorPhoto = function(){ 
-			alert("clicked");
-		};
-			//flickrURL = flickrURL + '&color_codes=0';
+	   $scope.loadColorPhoto = function(index){
+alert(index);
+			flickrURL = flickrURL + '&color_codes='+ index;
 		
-		//$http.get(flickrURL).success(function (response){
-		 //$scope.flickrPhotos = response.photos.photo;
+		$http.get(flickrURL).success(function (response){
+		 $scope.flickrPhotos = response.photos.photo;
 		 	
-		//});
+		});
+		};
 		
 		
 
